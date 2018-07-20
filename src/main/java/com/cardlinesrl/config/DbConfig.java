@@ -1,4 +1,4 @@
-package com.cardlinesrl.datasource;
+package com.cardlinesrl.config;
 
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;

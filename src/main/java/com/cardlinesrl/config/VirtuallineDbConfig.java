@@ -1,4 +1,4 @@
-package com.cardlinesrl.datasource;
+package com.cardlinesrl.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -23,7 +23,7 @@ public class VirtuallineDbConfig implements DbConfig {
 
     @Override
     @Bean(name = "virtuallineDataSource")
-    @ConfigurationProperties(prefix = "virtualline.datasource")
+    @ConfigurationProperties(prefix = "virtualline.config")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }

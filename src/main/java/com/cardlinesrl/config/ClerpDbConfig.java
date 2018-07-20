@@ -1,4 +1,4 @@
-package com.cardlinesrl.datasource;
+package com.cardlinesrl.config;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -26,7 +26,7 @@ public class ClerpDbConfig implements DbConfig {
     @Override
     @Primary
     @Bean(name = "clerpDataSource")
-    @ConfigurationProperties(prefix = "clerp.datasource")
+    @ConfigurationProperties(prefix = "clerp.config")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
