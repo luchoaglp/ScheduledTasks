@@ -54,5 +54,13 @@ public class VirtualParticipant {
     public void setBalances(List<VirtualBalance> balances) {
         this.balances = balances;
     }
+
+    @Override
+    public String toString() {
+        return "VirtualParticipant{" +
+                "virtualId=" + virtualId +
+                ", participantName='" + participantName + '\'' +
+                '}';
+    }
 }
 

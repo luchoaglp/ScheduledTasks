@@ -62,4 +62,13 @@ public class VirtualBalance {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
+    @Override
+    public String toString() {
+        return "VirtualBalance{" +
+                "balanceId=" + balanceId +
+                ", balanceDate=" + balanceDate +
+                ", balance=" + balance +
+                '}';
+    }
 }
