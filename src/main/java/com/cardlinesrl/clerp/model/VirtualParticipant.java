@@ -1,21 +1,12 @@
 package com.cardlinesrl.clerp.model;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "virtual_participants")
 public class VirtualParticipant {
 
-    @Id
-    @Column(name = "virtual_id", nullable = false)
     private Integer virtualId;
-
-    @Column(name = "participant_name", nullable = false, length = 50)
     private String participantName;
-
-    @OneToMany(mappedBy = "virtualParticipant", cascade = CascadeType.ALL)
     private List<VirtualBalance> balances = new ArrayList<>();
 
     public VirtualParticipant() { }

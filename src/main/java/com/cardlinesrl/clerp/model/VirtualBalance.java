@@ -1,27 +1,13 @@
 package com.cardlinesrl.clerp.model;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
-@Table(name = "virtual_balances")
 public class VirtualBalance {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "balance_id", nullable = false)
     private Integer balanceId;
-
-    @Column(name = "balance_date", nullable = false)
-    @Temporal(TemporalType.DATE)
     private Date balanceDate;
-
-    @Column(name = "balance", nullable = false)
     private BigDecimal balance;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "virtual_id", nullable = false)
     private VirtualParticipant virtualParticipant;
 
     public VirtualBalance() { }

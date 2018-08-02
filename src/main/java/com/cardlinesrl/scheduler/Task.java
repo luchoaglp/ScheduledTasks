@@ -8,9 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Task {
 
-    @Scheduled(cron = "0 0 18 * * *")
+    @Scheduled(cron = "0 0 18 * * ?")
     public void scheduleBalanceControl() {
-        VirtualParticipantService.proccessParticipantsNegativeBalance(new ParticipantBalanceService().getParticipantsNegativeBalance());
+
+        new VirtualParticipantService().processParticipantsNegativeBalance(new ParticipantBalanceService().getParticipantsNegativeBalance());
     }
 
 }

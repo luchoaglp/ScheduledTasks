@@ -1,15 +1,16 @@
 package com.cardlinesrl.util;
 
 import com.cardlinesrl.virtualline.model.ParticipantBalance;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class VirtuallineConnection {
+
+    final static Logger logger = Logger.getLogger(ClerpConnection.class);
 
     private static Connection conn;
 
@@ -22,9 +23,9 @@ public class VirtuallineConnection {
             conn = DriverManager.getConnection(ConnectionData.VL_URL, ConnectionData.VL_USER, ConnectionData.VL_PASS);
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VirtuallineConnection.class.getName()).log(Level.SEVERE, null, ex);
+            logger.debug(ex);
         } catch (SQLException ex) {
-            Logger.getLogger(VirtuallineConnection.class.getName()).log(Level.SEVERE, null, ex);
+            logger.debug(ex);
         }
     }
 
@@ -35,7 +36,7 @@ public class VirtuallineConnection {
             conn.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(VirtuallineConnection.class.getName()).log(Level.SEVERE, null, ex);
+            logger.debug(ex);
         }
     }
 
@@ -50,8 +51,7 @@ public class VirtuallineConnection {
 
         try (PreparedStatement st = conn.prepareStatement(query)) {
 
-            ResultSet rs;
-            rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery(query);
 
             while (rs.next()) {
 
@@ -63,7 +63,7 @@ public class VirtuallineConnection {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(VirtuallineConnection.class.getName()).log(Level.SEVERE, null, ex);
+            logger.debug(ex);
         }
 
         return participants;

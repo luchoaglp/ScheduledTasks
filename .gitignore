@@ -9,5 +9,6 @@
 
 /src/main/java/com/cardlinesrl/util/ConnectionData.java
 /src/main/resources/application.properties
+/src/main/resources/log4j.properties
 
 
